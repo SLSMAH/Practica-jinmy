@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Panel · Práctica JS</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="shell">
+    <div class="topbar">
+      <div class="brand"><div class="logo">JS</div><div>Panel de sesión</div></div>
+      <a href="index.html" class="badge" style="text-decoration:none">Vista alumno</a>
+    </div>
+
+    <section id="pinView" class="card hero">
+      <div class="q-number">Acceso del creador</div>
+      <h1>Control de la práctica</h1>
+      <p>Introduce el PIN configurado en <span class="codebox">firebase-config.js</span>.</p>
+      <div class="field" style="max-width:360px">
+        <label for="adminPin">PIN</label>
+        <input id="adminPin" type="password" class="input" maxlength="20" placeholder="PIN de administrador" />
+      </div>
+      <div id="pinMessage"></div>
+      <button id="unlockBtn" class="btn btn-primary">Abrir panel</button>
+    </section>
+
+    <section id="adminView" class="hidden">
+      <div class="card">
+        <div class="q-number">Sesión actual</div>
+        <h2 id="sessionState">No hay sesión activa</h2>
+        <div id="sessionCodeDisplay" class="session-code">------</div>
+        <div class="actions">
+          <button id="createSessionBtn" class="btn btn-success">Crear nueva sesión</button>
+          <button id="closeSessionBtn" class="btn btn-danger">Cerrar sesión</button>
+          <button id="refreshBtn" class="btn btn-ghost">Actualizar resultados</button>
+          <button id="exportBtn" class="btn btn-ghost">Exportar CSV</button>
+        </div>
+        <div id="adminMessage"></div>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat"><span class="muted small">Intentos</span><b id="attemptCount">0</b></div>
+        <div class="stat"><span class="muted small">Promedio</span><b id="avgScore">0/20</b></div>
+        <div class="stat"><span class="muted small">Mejor puntuación</span><b id="bestScore">0/20</b></div>
+      </div>
+
+      <div class="card">
+        <h2>Resultados</h2>
+        <p class="muted">Las respuestas abiertas quedan guardadas para revisarlas manualmente.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Nombre</th><th>Puntuación</th><th>Fecha</th><th>Respuestas abiertas</th></tr></thead>
+            <tbody id="resultsBody"><tr><td colspan="4" class="muted">Aún no hay resultados.</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">Panel de práctica · JavaScript básico</div>
+  </main>
+
+  <script src="firebase-config.js"></script>
+  <script src="questions.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

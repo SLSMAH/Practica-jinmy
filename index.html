@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Examen de práctica de JavaScript básico" />
+  <title>Práctica JS Básico</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="shell">
+    <div class="topbar">
+      <div class="brand"><div class="logo">JS</div><div>Práctica JS Básico</div></div>
+      <div class="badge">25 preguntas · práctica</div>
+    </div>
+
+    <section id="loginView">
+      <div class="card hero">
+        <h1>Prepárate para el examen de JavaScript.</h1>
+        <p>20 preguntas de selección múltiple y 5 ejercicios abiertos sobre variables, constantes, arrays, asignación, int/double y declaraciones.</p>
+      </div>
+
+      <div class="card">
+        <h2>Entrar a una sesión</h2>
+        <p class="muted">Escribe tu nombre y el código que compartió el profesor o compañero que creó la sesión.</p>
+        <div class="grid-2">
+          <div class="field">
+            <label for="studentName">Tu nombre</label>
+            <input id="studentName" class="input" maxlength="40" autocomplete="name" placeholder="Ej.: José Ángel" />
+          </div>
+          <div class="field">
+            <label for="sessionCode">Código de sesión</label>
+            <input id="sessionCode" class="input" maxlength="8" inputmode="numeric" placeholder="Ej.: 483921" />
+          </div>
+        </div>
+        <div id="loginMessage"></div>
+        <button id="joinBtn" class="btn btn-primary">Entrar al examen</button>
+      </div>
+    </section>
+
+    <section id="examView" class="hidden">
+      <div class="progress-wrap">
+        <div class="progress-row"><span id="studentBadge">Alumno</span><span id="progressText">0/25 respondidas</span></div>
+        <div class="progress"><div id="progressBar"></div></div>
+      </div>
+      <div id="questionsContainer"></div>
+      <div class="card">
+        <h2>¿Terminaste?</h2>
+        <p class="muted">Revisa tus respuestas antes de entregar. Las preguntas abiertas no se califican automáticamente.</p>
+        <div id="submitMessage"></div>
+        <button id="submitBtn" class="btn btn-success">Entregar práctica</button>
+      </div>
+    </section>
+
+    <section id="resultView" class="hidden">
+      <div class="card hero">
+        <div class="q-number">Resultado</div>
+        <h1 id="resultName">¡Buen trabajo!</h1>
+        <div class="result-score"><span id="scoreValue">0</span>/20</div>
+        <p id="scoreText" class="muted"></p>
+        <div class="actions">
+          <button id="reviewBtn" class="btn btn-primary">Ver corrección</button>
+          <button id="retryBtn" class="btn btn-ghost">Intentar otra vez</button>
+        </div>
+      </div>
+      <div id="reviewPanel" class="card hidden"></div>
+    </section>
+
+    <div class="footer">Hecho para practicar antes del examen · JavaScript básico</div>
+  </main>
+
+  <script src="firebase-config.js"></script>
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
